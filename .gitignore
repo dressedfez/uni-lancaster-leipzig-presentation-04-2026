@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+.env
+.venv
+
+# Visual Studio Code
+.vscode/
+
+# Marimo generated state
+__marimo__/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
