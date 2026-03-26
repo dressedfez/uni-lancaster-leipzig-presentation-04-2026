@@ -40,27 +40,26 @@ def _():
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _(mo):
-    mo.md(r"""
+    mo.vstack(
+        [
+            mo.md(r"""
+    ## Software-Development - From Problem to Software Design
+    """),
+            mo.center(
+                mo.image("pictures/software-development-lifecycle.png", width=500)
+            ),
+            mo.md(r"""
     ## Design Questions
 
-    - Is something a type of something else?
-    - Does ist use something else to do its job?
+    - Is something a type of something else?  -- Entities have a **is-a** relationship
+    - Does ist use something else to do its job? -- Entities have a **has-a** relationship
 
     /// note
     The way we answer these questions allows us to determine whether we deal with inheritance or composition.
     ///
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.vstack(
-        [
-            mo.md(r"""## Inheritance"""),
-            mo.center(mo.image("pictures/inheritance-example.png", width="80%")),
+    """),
         ]
     )
     return
@@ -70,7 +69,7 @@ def _(mo):
 def _(mo):
     mo.vstack(
         [
-            mo.md(r"""## Inheritance with counter-example"""),
+            mo.md(r"""## Inheritance (with counter-example)"""),
             mo.hstack(
                 [
                     mo.center(
@@ -81,17 +80,20 @@ def _(mo):
                     ),
                     mo.vstack(
                         [
-                            mo.center(
+                   
                                 mo.md("""
                         - a Car `is-a` Vehicle
                         - a Plane `is-a` Vehicle
                         - but a Plane `is-not-a` Car
-                    """)
-                            ),
+                    """),
                             mo.center(
                                 mo.md("""
     /// attention
-    Inhertiance is described as an **is-a** relationship!
+    - Inhertiance is described as an **is-a** relationship!
+    - Sub-class inherites from or extends a base class, which means that:
+      - behavior and
+      - attributes of the base class are available in the sub-class.
+    - This allows us to reuse code and create a hierarchical relationship between classes.
     ///""")
                             ),
                         ]
@@ -219,14 +221,20 @@ def _(mo):
     mo.vstack(
         [
             mo.md(r"""## Composition"""),
-            mo.hstack([
-                mo.center(mo.image("pictures/composition-example.png")),
-                mo.center(mo.md(r"""
+            mo.hstack(
+                [
+                    mo.center(mo.image("pictures/composition-example.png")),
+                    mo.center(
+                        mo.md(r"""
     /// attention
     - Composition is described as a **has-a** relationship!
     - In composition, a class contains an instance of another class to achieve its functionality, rather than inheriting from it.
     ///
-            """)),], widths=[1.5, 1],)
+            """)
+                    ),
+                ],
+                widths=[1.5, 1],
+            ),
         ]
     )
     return
@@ -271,14 +279,16 @@ def _():
         def start(self):
             print("Engine starts")
 
+
     class CompositeCar:
         def __init__(self):
             print("Create a CompositeCar instance")
-            self.engine = Engine()    # create an instance of Engine as a component of Car
+            self.engine = (
+                Engine()
+            )  # create an instance of Engine as a component of Car
 
         def start(self):
-            self.engine.start()      # delegate the start behavior to the Engine instance
-
+            self.engine.start()  # delegate the start behavior to the Engine instance
 
     return CompositeCar, Engine
 
@@ -345,8 +355,9 @@ def _(mo):
     mo.vstack(
         [
             mo.md(r"""## Comperision between Inheritance and Composition"""),
-            mo.hstack([
-                mo.md(r"""
+            mo.hstack(
+                [
+                    mo.md(r"""
     **Inheritance**:
     - **Relationship**: `is-a`
     - **Coupling**: Tight coupling between base and derived classes.
@@ -354,7 +365,7 @@ def _(mo):
     - **Code Reuse**: Promotes code reuse through class hierarchies.
     - **Use Case**: Suitable when there is a clear hierarchical relationship and shared behavior.
                 """),
-                mo.md(r"""
+                    mo.md(r"""
     **Composition**:
 
     - **Relationship**: `has-a`
@@ -363,14 +374,16 @@ def _(mo):
     - **Code Reuse**: Promotes code reuse through composition of behaviors.
     - **Use Case**: Suitable when behavior can be achieved by combining simpler components, or when there is no clear hierarchical relationship.
                 """),
-            
-            ]),
+                ]
+            ),
             mo.md(r"""
             /// attention
             - Inheritance is simpler to start with, but composition scales better for complex systems. 
             - In practice, a combination of both is often used, with composition being favored for flexibility and maintainability.
-            """)
-        ], align="center")
+            """),
+        ],
+        align="center",
+    )
     return
 
 
