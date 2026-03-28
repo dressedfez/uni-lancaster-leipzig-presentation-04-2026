@@ -57,7 +57,7 @@ def _(mo):
     - Does ist use something else to do its job? -- Entities have a **has-a** relationship
 
     /// note
-    The way we answer these questions allows us to determine whether we deal with inheritance or composition.
+    The way we answer these questions allows us to determine whether we deal with inheritance (**is-a**) or composition (**has-a**).
     ///
     """),
         ]
@@ -69,25 +69,28 @@ def _(mo):
 def _(mo):
     mo.vstack(
         [
-            mo.md(r"""## Inheritance (with counter-example)"""),
+            mo.md(r"""## Inheritance"""),
             mo.hstack(
                 [
-                    mo.center(
-                        mo.image(
-                            "pictures/inheritance-with-counter-example.png",
-                            width="80%",
-                        )
-                    ),
                     mo.vstack(
                         [
-                   
+                            mo.center(
+                                mo.image(
+                                    "pictures/inheritance-with-counter-example.png",
+                                    width="80%",
+                                )
+                            ),
+                            mo.center(
                                 mo.md("""
                         - a Car `is-a` Vehicle
                         - a Plane `is-a` Vehicle
                         - but a Plane `is-not-a` Car
-                    """),
-                            mo.center(
-                                mo.md("""
+                    """)
+                            ),
+                        ]
+                    ),
+                    mo.center(
+                        mo.md("""
     /// attention
     - Inhertiance is described as an **is-a** relationship!
     - Sub-class inherites from or extends a base class, which means that:
@@ -95,8 +98,6 @@ def _(mo):
       - attributes of the base class are available in the sub-class.
     - This allows us to reuse code and create a hierarchical relationship between classes.
     ///""")
-                            ),
-                        ]
                     ),
                 ]
             ),
@@ -144,7 +145,7 @@ def _(mo):
 def _():
     class Vehicle:
         def move(self):
-            print("The vehicle moves")
+            print(f"The vehicle ({type(self)}) moves")
 
 
     class Car(Vehicle):
@@ -229,6 +230,7 @@ def _(mo):
     /// attention
     - Composition is described as a **has-a** relationship!
     - In composition, a class contains an instance of another class to achieve its functionality, rather than inheriting from it.
+    - Composite classes delegate behavior to their component classes
     ///
             """)
                     ),
@@ -259,9 +261,11 @@ def _(mo):
     class CompositeCar:
 
         def __init__(self):
+            print("Create a CompositeCar instance")
             self.engine = Engine()    # create an instance of Engine as a component of Car
 
         def start(self):
+            print("CompositeCar starts")
             self.engine.start()      # delegate the start behavior to the Engine instance
     """
     mo.vstack(
@@ -288,22 +292,21 @@ def _():
             )  # create an instance of Engine as a component of Car
 
         def start(self):
+            print("CompositeCar starts")
             self.engine.start()  # delegate the start behavior to the Engine instance
 
-    return CompositeCar, Engine
+    return (CompositeCar,)
 
 
 @app.cell
-def _(CompositeCar, Engine, io, mo, redirect_stdout):
+def _(CompositeCar, io, mo, redirect_stdout):
     snippet_composition = """
-    engine = Engine()
     composite_car = CompositeCar()
 
     composite_car.start()"""
 
     buffer_composition = io.StringIO()
     with redirect_stdout(buffer_composition):
-        engine = Engine()
         composite_car = CompositeCar()
 
         composite_car.start()
@@ -384,6 +387,12 @@ def _(mo):
         ],
         align="center",
     )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.center(mo.image("pictures/thank-you-for-your-attention.png", width=500))
     return
 
 
