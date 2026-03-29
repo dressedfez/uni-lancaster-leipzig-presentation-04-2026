@@ -95,7 +95,8 @@ def _(mo):
     - Inhertiance is described as an **is-a** relationship!
     - Sub-class inherites from or extends a base class, which means that:
       - behavior and
-      - attributes of the base class are available in the sub-class.
+      - attributes 
+      of the base class are available in the sub-class.
     - This allows us to reuse code and create a hierarchical relationship between classes.
     ///""")
                     ),
@@ -115,7 +116,7 @@ def _(mo):
     class Vehicle: 
 
         def move(self):
-              print("The vehicle moves")
+              print("The vehicle ({type(self)}) moves")
 
 
     ###############################################
@@ -210,7 +211,7 @@ def _(mo):
         - Inhertiance allows us to reuse code and create a hierarchical relationship between classes.
         - Extensibility: We can add new behavior to subclasses without modifying the base class.
     - **Disadvantages of Inheritance:**
-        - Tight coupling: Subclasses are tightly coupled to the base class, which can lead to issues if the base class changes.
+        - Tight coupling: Sub-classes are tightly coupled to the base class, which can lead to issues if the base class changes.
         - Inheritance can lead to complex hierarchies that are difficult to understand and maintain.
     ///
     """)
@@ -229,8 +230,8 @@ def _(mo):
                         mo.md(r"""
     /// attention
     - Composition is described as a **has-a** relationship!
-    - In composition, a class contains an instance of another class to achieve its functionality, rather than inheriting from it.
-    - Composite classes delegate behavior to their component classes
+    - In composition, a class (composite) contains an instance of another class (component) to achieve its functionality, rather than inheriting from it.
+    - Composite classes **delegate behavior** to their component classes
     ///
             """)
                     ),
@@ -347,7 +348,6 @@ def _(mo):
     - **Disadvantages of Composition:**
         - **Boilerplate**: Composition can require more boilerplate code to delegate behavior to component classes.
         - **High Fragmentation**: Harder to understand the overall design as behavior is distributed across multiple classes.
-        - **Indirection**: Behavior is spread across multiple classes.
     ///
     """)
     return
@@ -365,7 +365,6 @@ def _(mo):
     - **Relationship**: `is-a`
     - **Coupling**: Tight coupling between base and derived classes.
     - **Flexibility**: Less flexible, as behavior is defined in the class hierarchy.
-    - **Code Reuse**: Promotes code reuse through class hierarchies.
     - **Use Case**: Suitable when there is a clear hierarchical relationship and shared behavior.
                 """),
                     mo.md(r"""
@@ -374,13 +373,12 @@ def _(mo):
     - **Relationship**: `has-a`
     - **Coupling**: Loose coupling between composite and component classes.
     - **Flexibility**: More flexible, as behavior can be changed at runtime by changing component instances.
-    - **Code Reuse**: Promotes code reuse through composition of behaviors.
     - **Use Case**: Suitable when behavior can be achieved by combining simpler components, or when there is no clear hierarchical relationship.
                 """),
                 ]
             ),
             mo.md(r"""
-            /// attention
+            /// attention | Summary
             - Inheritance is simpler to start with, but composition scales better for complex systems. 
             - In practice, a combination of both is often used, with composition being favored for flexibility and maintainability.
             """),
