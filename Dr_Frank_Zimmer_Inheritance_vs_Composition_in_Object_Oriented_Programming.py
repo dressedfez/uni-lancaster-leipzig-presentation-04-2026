@@ -27,7 +27,7 @@ def _(mo):
     mo.Html("""
     <div style="display:flex; flex-direction:column; align-items:center;
                 justify-content:center; height:80vh; text-align:center;">
-      <h1 style="font-size:3rem;">Inhertiance vs. Composition in Object-Oriented Programming</h1>
+      <h1 style="font-size:3rem;">Inheritance vs. Composition in Object-Oriented Programming</h1>
       <h2 style="font-weight:normal; color:#555;">Dr. Frank Zimmer</h2>
       <p style="color:#888;">April 2026</p>
     </div>
@@ -36,16 +36,11 @@ def _(mo):
 
 
 @app.cell
-def _():
-    return
-
-
-@app.cell
 def _(mo):
     mo.vstack(
         [
             mo.md(r"""
-    ## Software-Development - From Problem to Software Design
+    ## Software Development - From Problem to Software Design
     """),
             mo.center(
                 mo.image("pictures/software-development-lifecycle.png", width=500)
@@ -53,8 +48,8 @@ def _(mo):
             mo.md(r"""
     ## Design Questions
 
-    - Is something a type of something else?  -- Entities have a **is-a** relationship
-    - Does ist use something else to do its job? -- Entities have a **has-a** relationship
+    - Is something a type of something else? -- Entities have an **is-a** relationship
+    - Does it use something else to do its job? -- Entities have a **has-a** relationship
 
     /// note
     The way we answer these questions allows us to determine whether we deal with inheritance (**is-a**) or composition (**has-a**).
@@ -92,11 +87,11 @@ def _(mo):
                     mo.center(
                         mo.md("""
     /// attention
-    - Inhertiance is described as an **is-a** relationship!
-    - Sub-class inherites from or extends a base class, which means that:
+    - Inheritance is described as an **is-a** relationship!
+    - A subclass inherits from or extends a base class, which means that:
       - behavior and
       - attributes 
-      of the base class are available in the sub-class.
+      of the base class are available in the subclass.
     - This allows us to reuse code and create a hierarchical relationship between classes.
     ///""")
                     ),
@@ -116,11 +111,11 @@ def _(mo):
     class Vehicle: 
 
         def move(self):
-              print("The vehicle ({type(self)}) moves")
+              print(f"The vehicle ({type(self)}) moves")
 
 
     ###############################################
-    # definition of sub-classes and their behavior
+    # definition of subclasses and their behavior
     ###############################################
 
     class Car(Vehicle):
@@ -208,10 +203,10 @@ def _(mo):
     mo.md(r"""
     /// note
     - **Advantages of Inheritance:**
-        - Inhertiance allows us to reuse code and create a hierarchical relationship between classes.
+        - Inheritance allows us to reuse code and create a hierarchical relationship between classes.
         - Extensibility: We can add new behavior to subclasses without modifying the base class.
     - **Disadvantages of Inheritance:**
-        - Tight coupling: Sub-classes are tightly coupled to the base class, which can lead to issues if the base class changes.
+        - Tight coupling: Subclasses are tightly coupled to the base class, which can lead to issues if the base class changes.
         - Inheritance can lead to complex hierarchies that are difficult to understand and maintain.
     ///
     """)
@@ -357,7 +352,7 @@ def _(mo):
 def _(mo):
     mo.vstack(
         [
-            mo.md(r"""## Comperision between Inheritance and Composition"""),
+            mo.md(r"""## Comparison between Inheritance and Composition"""),
             mo.hstack(
                 [
                     mo.md(r"""
@@ -391,11 +386,6 @@ def _(mo):
 @app.cell
 def _(mo):
     mo.center(mo.image("pictures/thank-you-for-your-attention.png", width=500))
-    return
-
-
-@app.cell
-def _():
     return
 
 
