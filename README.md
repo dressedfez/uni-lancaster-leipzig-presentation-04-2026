@@ -2,7 +2,7 @@
 
 This repository contains the source material for an academic talk by Dr. Frank Zimmer on the design trade-offs between inheritance and composition in object-oriented programming. The talk introduces the conceptual distinction between `is-a` and `has-a` relationships, demonstrates both approaches with Python examples, and discusses their implications for reuse, coupling, flexibility, and maintainability.
 
-The material was prepared for the University of Lancashire Leipzig Talk, April 2026, as part of an application to a professorship.
+The material was prepared for the Lancaster University Leipzig Talk, April 2026, as part of an application to a professorship.
 
 ## Contents
 
@@ -49,7 +49,7 @@ The images in `pictures/` are AI-generated visual assets prepared for this talk.
 
 If you refer to this talk, please cite it as:
 
-> Dr. Frank Zimmer. 2026. *Inheritance vs. Composition in Object-Oriented Programming*. University of Lancashire Leipzig Talk, April 2026.
+> Dr. Frank Zimmer. 2026. *Inheritance vs. Composition in Object-Oriented Programming*. Lancaster University Leipzig Talk, April 2026.
 
 Machine-readable citation metadata is provided in `CITATION.cff`.
 

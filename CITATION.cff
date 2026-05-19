@@ -7,7 +7,7 @@ authors:
     alias: "Dr. Frank Zimmer"
 type: dataset
 date-released: 2026-04-01
-abstract: "Source material and generated PDF for an academic talk prepared for the University of Lancashire Leipzig Talk, April 2026, as part of an application to a professorship. The talk discusses design trade-offs between inheritance and composition in object-oriented programming, with Python examples and discussion of reuse, coupling, flexibility, and maintainability."
+abstract: "Source material and generated PDF for an academic talk prepared for the Lancaster University Leipzig Talk, April 2026, as part of an application to a professorship. The talk discusses design trade-offs between inheritance and composition in object-oriented programming, with Python examples and discussion of reuse, coupling, flexibility, and maintainability."
 license: CC-BY-4.0
 keywords:
   - object-oriented programming
